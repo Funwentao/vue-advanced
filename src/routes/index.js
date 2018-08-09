@@ -1,7 +1,3 @@
-import VueRouter from 'vue-router'
+import route from './route';
 
-export default new VueRouter({
-    routes: [{
-        
-    }]
-})
+export default route;
