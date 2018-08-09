@@ -1,5 +1,6 @@
 import components from "./components"
 import Vue from "vue"
+import VueRoter from "vue-router"
 
 for (let key in components) {
     if (components.hasOwnProperty(key)) {
@@ -7,16 +8,30 @@ for (let key in components) {
     }
 }
 
-function _getInitRoute () {
-    let route = [];
+// function _getInitRoute () {
+//     let route = [];
 
-    route.push({
-        path: '/',
-        component: login,
-    });
-    return route;
+//     route.push({
+//         path: '/',
+//         component: login,
+//     });
+//     return route;
+// }
+
+// export default {
+//     getInitRoute: _getInitRoute
+// }
+
+const routers = []
+for (let key in components) {
+    if (components.hasOwnProperty(key)) {
+        routers.push({
+            path: `/${key}`,
+            components: components[key]
+        })
+    }
 }
 
-export default {
-    getInitRoute: _getInitRoute
-}
+export default new VueRoter({
+    routers
+})

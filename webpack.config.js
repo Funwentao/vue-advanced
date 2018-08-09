@@ -7,7 +7,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry :{
-        index: "./src/main.js"
+        app: "./src/main.js"
     },
     output:{
         path: path.resolve(__dirname,'dist'),
@@ -54,7 +54,7 @@ module.exports = {
             title: '首页',
             filename: 'index.html',
             template: './index.html',
-            chunks:['index']
+            chunks:['app']
         }),
         new VueLoaderPlugin(),
         new ExtractTextPlugin("./css/[name].css"),
