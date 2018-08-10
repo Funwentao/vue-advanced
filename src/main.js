@@ -12,7 +12,6 @@ Vue.use(VueRouter)
 Vue.use(Vuex)
 
 
-
 new Vue({
     router,
     render: h => h(App)
