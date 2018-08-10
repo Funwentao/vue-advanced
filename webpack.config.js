@@ -11,7 +11,9 @@ module.exports = {
     },
     output:{
         path: path.resolve(__dirname,'dist'),
-        filename: '[name]-bundle.js'
+        filename: '[name]-bundle.js',
+        chunkFilename: 'chunk[id].js',
+        publicPath: '/'
     },
     module:{
         rules: [{
@@ -31,7 +33,6 @@ module.exports = {
             loader: 'vue-loader',
         },{
             test: /\.less$/,
-            //loader: "style-loader!css-loader!less-loader",
             loader: ExtractTextPlugin.extract({
                 fallback: 'style-loader', 
                 use: ['css-loader', 'less-loader']
@@ -57,7 +58,10 @@ module.exports = {
             chunks:['app']
         }),
         new VueLoaderPlugin(),
-        new ExtractTextPlugin("./css/[name].css"),
+        new ExtractTextPlugin({
+            filename: "./css/[name].css",
+            allChunks: true
+        }),
         new webpack.HotModuleReplacementPlugin()
     ]
 }

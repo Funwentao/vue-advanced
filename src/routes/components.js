@@ -3,6 +3,9 @@ export default {
     home: () => import("../views/home/home.vue")
 }
 
+// const login = () => import("../views/login/login.vue"),
+//       home = () => import("../views/home/home.vue");
+
 // import login from '../views/login/login.vue'
 // import home from '../views/home/home.vue'
 

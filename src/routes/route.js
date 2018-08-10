@@ -24,10 +24,28 @@ export default {
     getInitRoute: _getInitRoute
 }
 */
+
+
+// const login = () => import("../views/login/login.vue"),
+//       home = () => import("../views/home/home.vue");
+// import login from '../views/login/login.vue'
+// import home from '../views/home/home.vue'
+
+// const routes = [
+//     {
+//         path: `/`,
+//         name: 'login',
+//         component: login
+//     },{
+//         path: `/home`,
+//         name: 'home',
+//         component: home
+//     }
+// ]
 const routes = []
 for (let key in components) {
     if (components.hasOwnProperty(key)) {
-        Vue.component(key, components[key])
+        // Vue.component(key, components[key])
         if (key === 'login') {
             routes.push({
                 path: `/`,
@@ -43,6 +61,8 @@ for (let key in components) {
         }
     }
 }
+
+
 
 export default new VueRoter({
     routes
