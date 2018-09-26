@@ -1,29 +1,47 @@
-import echarts from 'echarts';
+import echarts from 'echarts'
+import makeData from '../../lib/makeData'
 
 export default {
     data() {
         return {
-
+            array: []
         }
     },
+    created() {
+        document.title = 'echart'
+    },
     mounted() {
-        console.log("created")
         const myChart = echarts.init(document.getElementById('main'))
-        myChart.setOption({
-            title: {
-                text: 'ECharts 入门示例'
-            },
-            tooltip: {},
-            xAxis: {
-                data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-            },
-            yAxis: {},
-            series: [{
-                name: '销量',
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
-            }]
+        const array = []
+        let time = 0
+        let value = 100
+
+        array.push({
+            value,
+            name: `测试${time}`
         })
+
+        let option = makeData(array)
+
+        myChart.setOption(option)
+
+        const i = setInterval(() => {
+
+            if (time > 3) {
+                clearInterval(i);  
+            } else {
+                time ++;
+                value -= 20;
+                array.push({
+                    value,
+                    name:  `测试${time}`
+                })
+                option = makeData(array)
+                myChart.setOption(option)
+            }
+
+        }, 200)
+        
     },
     methods: {
 
