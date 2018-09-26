@@ -1,6 +1,5 @@
 import components from "./components"
 import VueRoter from "vue-router"
-import Vue from "vue"
 
 
 const routes = []
