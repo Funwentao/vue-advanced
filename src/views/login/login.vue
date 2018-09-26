@@ -1,6 +1,6 @@
 <template>
 <div>
-    <el-button>login</el-button>
+    <el-button type='primary'>login</el-button>
 </div>
 </template>
 
